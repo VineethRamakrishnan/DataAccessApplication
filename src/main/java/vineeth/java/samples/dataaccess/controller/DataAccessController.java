@@ -30,8 +30,7 @@ public class DataAccessController {
 	private DataAccessService service;
 
 	public DataAccessController() {
-
-		//this.service = service;
+		
 	}
 
 	/**
@@ -81,9 +80,10 @@ public class DataAccessController {
 	 * @return
 	 */
 	@PutMapping(value = "/update/{id}")
-	public String updateEmployee(@PathVariable(value = "id") Long employeeId) {
+	public String updateEmployee(@RequestBody Employee emp) {
 
-		LOGGER.info("id value:" + employeeId);
+		LOGGER.info("Object value:" + emp);
+		service.updateEmployee(emp);
 		return "Successfully updated!";
 	}
 
@@ -96,6 +96,7 @@ public class DataAccessController {
 	public String deleteEmployee(@PathVariable(value = "id") Long employeeId) {
 
 		LOGGER.info("id value:" + employeeId);
+		service.deleteEmployee(employeeId);
 		return "Successsfully deleted!";
 	}
 }

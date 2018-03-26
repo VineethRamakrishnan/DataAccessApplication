@@ -1,6 +1,6 @@
 package vineeth.java.samples.dataaccess.services;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +29,9 @@ public class DataAccessServiceImpl implements DataAccessService {
 		}
 	}
 
+	/**
+	 * TODO: Employee with specified id not present exception
+	 */
 	public Employee getEmployee(Long empId) {
 
 		LOGGER.info("Inside getEmployee in DataAccessServiceImpl...");
@@ -40,21 +43,39 @@ public class DataAccessServiceImpl implements DataAccessService {
 		}
 	}
 
-	public Collection<Employee> getAllEmployees() {
+	public List<Employee> getAllEmployees() {
 		LOGGER.info("Inside getAllEmployees in DataAccessServiceImpl...");
 
 		return employeeRepository.findAll();
 
 	}
 
-	public String updateEmployee(Employee emp) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * TODO: Employee with specified id not present exception
+	 */
+	public Employee updateEmployee(Employee emp) {
+
+		LOGGER.info("Inside updateEmployee in DataAccessServiceImpl...");
+		if (emp.equals(null)) {
+			LOGGER.info("Empty Object !!!");
+			return null;
+		} else {
+			return employeeRepository.save(emp);
+		}
 	}
 
-	public String deleteEmployee(Integer empId) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * TODO: Employee with specified id not present exception
+	 */
+	public String deleteEmployee(Long empId) {
+		LOGGER.info("Inside deleteEmployee in DataAccessServiceImpl...");
+		if (empId.equals(null)) {
+			LOGGER.info("ID: NULL !!!");
+			return null;
+		} else {
+			employeeRepository.delete(getEmployee(empId));
+			return "Successfully deleted!";
+		}
 	}
 
 }

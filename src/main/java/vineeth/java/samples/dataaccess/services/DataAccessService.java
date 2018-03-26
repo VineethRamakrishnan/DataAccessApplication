@@ -2,8 +2,6 @@ package vineeth.java.samples.dataaccess.services;
 
 import java.util.Collection;
 
-import org.springframework.stereotype.Service;
-
 import vineeth.java.samples.dataaccess.data.Employee;
 
 /**
@@ -11,7 +9,7 @@ import vineeth.java.samples.dataaccess.data.Employee;
  * @author v.rama.krishnan
  *
  */
-@Service
+
 public interface DataAccessService {
 
 	Employee saveEmployee(Employee emp);
@@ -20,8 +18,8 @@ public interface DataAccessService {
 
 	Collection<Employee> getAllEmployees();
 
-	String updateEmployee(Employee emp);
+	Employee updateEmployee(Employee emp);
 
-	String deleteEmployee(Integer empId);
+	String deleteEmployee(Long empId);
 
 }
