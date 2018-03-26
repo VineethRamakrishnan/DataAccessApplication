@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>vineeth.java.samples</groupId>
-	<artifactId>dataAccess</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -42,4 +41,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<artifactId>dataaccess-application</artifactId>
 </project>
